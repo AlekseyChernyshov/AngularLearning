@@ -4,6 +4,7 @@ import {
   NgFor,
   UpperCasePipe,
 } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
 import {Hero} from '../hero';
 import {HEROES} from '../mock-heroes';
@@ -27,5 +28,8 @@ export class HeroesComponent {
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+  success(): void {
+    this.toastr.success('Герой успешно подтвержден');
   }
 }
