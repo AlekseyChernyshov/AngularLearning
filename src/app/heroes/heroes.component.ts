@@ -31,7 +31,13 @@ export class HeroesComponent {
   constructor(private toastr: ToastrService) {}
 
   onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+    if(hero.name.includes('a')) {
+      this.selectedHero = hero;
+      this.toastr.success('Герой содежрит букву а')
+    } else {
+      this.selectedHero = hero;
+      this.toastr.error('Герой не содержит букву а')
+    }
   }
   success(): void {
     this.toastr.success('Герой успешно подтвержден');
