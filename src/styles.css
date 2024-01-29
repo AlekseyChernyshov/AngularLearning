@@ -1,11 +1,11 @@
-/* Application-wide Styles */
+@import 'ngx-toastr/toastr';
 h1 {
-    color: #369;
+    color: rgb(31, 62, 94);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 250%;
   }
   h2, h3 {
-    color: #444;
+    color: #4e1c1c;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
   }
