@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {Hero} from '../hero';
 import {HEROES} from '../mock-heroes';
 
+
 @Component({
   standalone: true,
   selector: 'app-heroes',
@@ -19,12 +20,15 @@ import {HEROES} from '../mock-heroes';
     NgIf,
     NgFor,
     UpperCasePipe,
+
   ],
 })
 
 export class HeroesComponent {
   heroes = HEROES;
   selectedHero?: Hero;
+
+  constructor(private toastr: ToastrService) {}
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
