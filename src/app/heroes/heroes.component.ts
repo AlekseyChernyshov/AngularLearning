@@ -1,21 +1,42 @@
-import { Component } from '@angular/core';
-import { Hero } from '../hero';
+import {Component} from '@angular/core';
+import {
+  NgIf,
+  NgFor,
+  UpperCasePipe,
+} from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import {FormsModule} from '@angular/forms';
+import {Hero} from '../hero';
+import {HEROES} from '../mock-heroes';
+
 
 @Component({
+  standalone: true,
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrl: './heroes.component.css'
+  styleUrls: ['./heroes.component.css'],
+  imports: [
+    FormsModule,
+    NgIf,
+    NgFor,
+    UpperCasePipe,
+
+  ],
 })
+
 export class HeroesComponent {
+  heroes = HEROES;
+  selectedHero?: Hero;
+
   constructor(private toastr: ToastrService) {}
 
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-    class: 'Fighter'
+  onSelect(hero: Hero): void {
+    if(hero.name.includes('a')) {
+      this.selectedHero = hero;
+    } else {
+      this.toastr.error('Герой не содержит букву а')
+    }
   }
-
   success(): void {
     this.toastr.success('Герой успешно подтвержден');
   }
