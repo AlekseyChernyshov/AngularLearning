@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
 import {Hero} from '../hero';
 import {HEROES} from '../mock-heroes';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { FooterComponent } from '../footer/footer.component';
 
 
 @Component({
@@ -20,7 +22,8 @@ import {HEROES} from '../mock-heroes';
     NgIf,
     NgFor,
     UpperCasePipe,
-
+    HeroDetailComponent,
+    FooterComponent
   ],
 })
 
