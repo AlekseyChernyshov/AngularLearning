@@ -5,8 +5,6 @@ import { NgClass } from '@angular/common';
 
 
 @Component({
-  standalone: true,
-  imports: [NgClass,],
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
