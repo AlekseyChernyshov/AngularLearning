@@ -5,11 +5,9 @@ import {Hero} from '../hero';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
-  standalone: true,
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
-  imports: [FormsModule, NgIf, UpperCasePipe, FooterComponent],
 })
 export class HeroDetailComponent {
   @Input() hero?: Hero;

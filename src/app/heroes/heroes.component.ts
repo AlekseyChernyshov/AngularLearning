@@ -1,41 +1,43 @@
-import {Component} from '@angular/core';
-import {
-  NgIf,
-  NgFor,
-  UpperCasePipe,
-} from '@angular/common';
+import {Component, OnDestroy} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {FormsModule} from '@angular/forms';
 import {Hero} from '../hero';
-import {HEROES} from '../mock-heroes';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { FooterComponent } from '../footer/footer.component';
-
-
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
+import { map } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
 @Component({
-  standalone: true,
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
-  imports: [
-    FormsModule,
-    NgIf,
-    NgFor,
-    UpperCasePipe,
-    HeroDetailComponent,
-    FooterComponent
-  ],
 })
 
 export class HeroesComponent {
-  heroes = HEROES;
+  heroes: Observable<Hero[]> = this.heroService.getHeroes()
   selectedHero?: Hero;
 
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService,
+    private heroService: HeroService, private messageService: MessageService) {}
+
+    // getHeroes(): void {
+    //   this.heroService.getHeroes()
+    //       .pipe(
+    //         map(heros => heros.map(hero => hero.name))
+          
+    //       )
+    //       .subscribe(heroes => {
+    //         // this.heroes = heroes
+    //         console.log(heroes);
+    //       });
+    // }
+
+    ngOnInit(): void {
+      // this.getHeroes();
+    }
 
   onSelect(hero: Hero): void {
     if(hero.name.includes('a')) {
       this.selectedHero = hero;
+      this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
     } else {
       this.toastr.error('Герой не содержит букву а')
     }
