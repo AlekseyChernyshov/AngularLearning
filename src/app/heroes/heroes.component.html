@@ -1,10 +1,9 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes | async">
-    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-      <span class="badge">{{hero.id}}</span>
-      <span class="name">{{hero.name}}</span>
-    </button>
+    <a routerLink="/detail/{{hero.id}}" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
     <span class="class">{{hero.class}}</span>
     <span class="accept__btn" (click)="success()">Подтвердить героя</span>
   </li>
