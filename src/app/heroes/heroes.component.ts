@@ -35,10 +35,8 @@ export class HeroesComponent {
     }
 
   onSelect(hero: Hero): void {
-    if(hero.name.includes('a')) {
-      this.selectedHero = hero;
-      this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
-    } else {
+    if(!hero.name.includes('a')) 
+     {
       this.toastr.error('Герой не содержит букву а')
     }
   }

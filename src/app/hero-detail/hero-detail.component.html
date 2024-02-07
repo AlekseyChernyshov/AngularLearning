@@ -6,5 +6,10 @@
       <label for="hero-name">Hero name: </label>
       <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
     </div>
-
+    <div *ngIf="hero?.damage">
+      <p [ngClass]="{'class1': hero!.damage >= 10,
+      'class2': hero!.damage <= 10 && hero!.damage > 5, 
+      'class3': hero!.damage <= 5}">Damage: {{hero.damage}}</p>
+      </div>
+      <button type="button" (click)="goBack()">go back</button>
   </div>
