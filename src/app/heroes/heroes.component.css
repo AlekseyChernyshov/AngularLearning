@@ -8,6 +8,7 @@
 
   
   .heroes li {
+    position: relative;
     display: flex;
     align-items: center;
   }
@@ -75,3 +76,30 @@
     background-color: #000;
     color: #fafafa;
   }
+
+  .add-button {
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+   }
+   
+   .add-button:hover {
+     color: white;
+     background-color: #42545C;
+   }
+   
+   button.delete {
+     position: absolute;
+     left: 210px;
+     top: 25%;
+     background-color: white;
+     color:  #525252;
+     font-size: 1.1rem;
+     margin: 0;
+     padding: 1px 10px 3px 10px;
+   }
+   
+   button.delete:hover {
+     background-color: #525252;
+     color: white;
+   }
